@@ -91,12 +91,11 @@ Qstat.sb.opt = function(DATA, vecA, Psize, Bsize, sigLev)
 
   }
 
-
   ##======================o
   ## optimal block size
   ##======================
-  matB  = b.star(matD)                  ## use the sample being resampled
-  gamma = mean( matB[,1, drop=FALSE] )  ## 1st colum = stationary boostrap
+  matB  = b.star(matD)                      ## use the sample being resampled
+  gamma = mean( (1/matB[,1, drop=FALSE]) )  ## 1st colum = stationary boostrap
   
   ## containers
   matQ.BP = matrix(0,Bsize,Psize)  ## B x P: Box-Pierece Qstat

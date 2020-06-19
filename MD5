@@ -1,10 +1,10 @@
-57cc0e208a2dd29c7af31833c58a2c7b *DESCRIPTION
+97ddaf195292d38eb3a49e9aee2934d8 *DESCRIPTION
 35f544cdf7776c107073470d0a08f7b5 *NAMESPACE
-94fa41a0e124aabf0dc726c83507587d *NEWS.md
+7f7d237d867027831501e915ab80e024 *NEWS.md
 58b943a4d68a83f7866766f0b8603dee *R/Qstat.R
 b98dadfbf75d531358b3137690c3c8ea *R/Qstat.reg.sb.R
 be674aa77a74d27cc075ba6562424655 *R/Qstat.sb.R
-b9b993a75128a141d561bf9a72d0dbcc *R/Qstat.sb.opt.R
+c6df2441bf774eb5fbfbf17c33e027a6 *R/Qstat.sb.opt.R
 4249bc56a76937abcbc0b0190d830f58 *R/corr.lag.R
 4708a8ddced00d7cd34debbc49a20f64 *R/corr.lag.partial.R
 39ec191fc1bbf80a388f47293a1d7404 *R/cross.max.partial.R
@@ -12,9 +12,9 @@ b69df61a767036697896062681473c2d *R/crossq.R
 32e566efb31062d8d19fea372b738878 *R/crossq.max.R
 2b15e86a1220d7b6392e4ceccd3f1d3e *R/crossq.partial.R
 9ea36956bcbf348fe2ead6bab5e4bc46 *R/crossq.partial.sb.R
-a731318e140fce56e2d431c09cee22a9 *R/crossq.partial.sb.opt.R
+9fbc1940791961ab698efca4e8605f30 *R/crossq.partial.sb.opt.R
 c8bc775223f0c43efd74c60c50c4faf6 *R/crossq.sb.R
-fbc4941ba9d8351778b63d09bd4228e4 *R/crossq.sb.opt.R
+1fb4be73ae37a03db6029ea6a7e8d78a *R/crossq.sb.opt.R
 58742c2d9b281ec9e9e335a0167d486c *R/crossqreg.R
 46b45bec15932b17387947049aa23a51 *R/crossqreg.max.R
 cb6241fffd403f9ff777c27d59b74751 *R/crossqreg.max.partial.R
@@ -26,7 +26,7 @@ e0ef681901465d24f47f9139cb2c086a *R/quantilogram-package.R
 afc0d65315667ac632c4de94539ca57d *R/sb.index.R
 3dd62ddc056e46e0018a11fb7602d0aa *R/stock.R
 82d09b06526ca7a36cf336cbb854add8 *R/sys.risk.R
-3e5edb990f4ad5b3fe700c64d21b9d77 *README.md
+0b06ea6aafacf4f399c1c14b3d93d847 *README.md
 b58ca4b11e6d635a11e0c95f8e4ab5b2 *data/stock.rda
 2ddc9c1faa56c30a944797f571a602ba *data/sys.risk.rda
 a0e3922dc10f075d275b75c127e9a21f *man/Qstat.Rd

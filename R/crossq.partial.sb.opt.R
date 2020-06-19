@@ -48,7 +48,7 @@ crossq.partial.sb.opt = function(DATA, vecA, k, Bsize, sigLev)
     ## optimal block size
     ##======================
     matB  = b.star(matD)                  ## use the sample being resampled
-    gamma = mean( matB[,1, drop=FALSE] )  ## 1st colum = stationary boostrap
+    gamma = mean( (1/matB[,1, drop=FALSE]) )  ## 1st colum = stationary boostrap
     
     ##=========================================================================
     ## stationary bootstrap for cross-quantilogram

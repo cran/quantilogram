@@ -1,6 +1,6 @@
 Package: quantilogram
 Title: Cross-Quantilogram
-Version: 2.0.1
+Version: 2.1.1
 Authors@R: 
     c(person(given = "Tatsushi",
              family = "Oka",
@@ -37,10 +37,10 @@ RoxygenNote: 7.1.0
 Imports: quantreg, SparseM, stats, np
 Depends: R (>= 2.10)
 NeedsCompilation: no
-Packaged: 2020-05-13 08:29:15 UTC; student-t
+Packaged: 2020-06-19 10:31:50 UTC; student-t
 Author: Tatsushi Oka [aut, cre],
   Heejon Han [ctb],
   Oliver Linton [ctb],
   Yoon-Jae Whang [ctb]
 Repository: CRAN
-Date/Publication: 2020-05-31 10:00:03 UTC
+Date/Publication: 2020-06-19 10:50:05 UTC

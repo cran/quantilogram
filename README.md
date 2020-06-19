@@ -4,7 +4,7 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of quantilogram is to measure nonlinear dependence between two variables, based on either unconditional or conditional quantile functions. 
+The goal of quantilogram is to measure nonlinear dependence between two variables, based on either unconditional or conditional quantile functions.
 
 ## Installation
 

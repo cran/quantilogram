@@ -1,3 +1,3 @@
-# quantilogram 2.0.1
+# quantilogram 2.1.1
 
-* This is a preliminary version.
+This is a preliminary version. 
