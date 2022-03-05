@@ -1,3 +1,3 @@
-# quantilogram 2.1.1
+# quantilogram 2.2.1
 
-This is a preliminary version. 
+This package is a preliminary version, which is devloped under R 4.1.2.
