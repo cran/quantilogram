@@ -7,12 +7,15 @@
 ##' result provided by Politis and White (2004) and Patton, Politis and White (2004)
 ##' (The R-package, "np", written by  Hayfield and Racine is used).
 ##' Next, the average of the obtained values is used as the parameter value.
+##' 
 ##' @title Stationary Bootstrap for the Cross-Quantilogram with the choice of the stationary-bootstrap parameter
-##' @param DATA The original data matrix
+##' @param DATA An input matrix of dimensions T x 2, where T is the number of observations.
+##'             Column 1 contains the first variable and Column 2 contains the second variable.
+##'             This function will apply a k-period lag to the second variable during computation.
 ##' @param vecA A pair of two probability values at which sample quantiles are estimated
 ##' @param k A lag order
 ##' @param Bsize The number of repetition of bootstrap
-##' @param sigLev The statistical significance level
+##' @param sigLev The statistical significance level. Default is 0.05 (5% significance level). 
 ##' @return The boostrap critical values
 ##' @references
 ##' Han, H., Linton, O., Oka, T., and Whang, Y. J. (2016).
@@ -51,7 +54,7 @@
 ##' @import np stats
 ##' @export
 
-crossq.sb.opt = function(DATA, vecA, k, Bsize, sigLev)
+crossq.sb.opt = function(DATA, vecA, k, Bsize, sigLev=0.05)
 {
     ## size
     Tsize  = nrow(DATA)    ## =: T

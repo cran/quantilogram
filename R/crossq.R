@@ -1,8 +1,11 @@
 ##' Returns the cross-quantilogram 
 ##'
 ##' This function obtains the cross-quantilogram at the k lag order.
+##' 
 ##' @title Cross-Quantilogram
-##' @param DATA An input matrix
+##' @param DATA An input matrix of dimensions T x 2, where T is the number of observations.
+##'             Column 1 contains the first variable and Column 2 contains the second variable.
+##'             This function will apply a k-period lag to the second variable during computation.
 ##' @param vecA A pair of two probability values at which sample quantiles are estimated
 ##' @param k    A lag order (integer)
 ##' @return Cross-Quantilogram

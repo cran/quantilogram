@@ -3,7 +3,9 @@
 ##' This function generates critical values for for the cross-quantilogram,
 ##' using the stationary bootstrap in Politis and Romano (1994).
 ##' @title Stationary Bootstrap for the Cross-Quantilogram
-##' @param DATA The original data matrix
+##' @param DATA An input matrix of dimensions T x 2, where T is the number of observations.
+##'             Column 1 contains the first variable and Column 2 contains the second variable.
+##'             This function will apply a k-period lag to the second variable during computation.
 ##' @param vecA A pair of two probability values at which sample quantiles are estimated
 ##' @param k    A lag order
 ##' @param gamma A parameter for the stationary bootstrap

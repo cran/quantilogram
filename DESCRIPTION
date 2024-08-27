@@ -1,6 +1,6 @@
 Package: quantilogram
 Title: Cross-Quantilogram
-Version: 2.2.1
+Version: 3.1.1
 Authors@R: c(
     person("Tatsushi", "Oka", , "oka.econ@gmail.com", role = c("aut", "cre")),
     person("Heejon", "Han", role = "ctb"),
@@ -11,27 +11,35 @@ Maintainer: Tatsushi Oka <oka.econ@gmail.com>
 Description: Estimation and inference methods for the cross-quantilogram.
     The cross-quantilogram is a measure of nonlinear dependence between
     two variables, based on either unconditional or conditional quantile
-    functions.  The cross-quantilogram can be considered as an extension
-    of the correlogram, which is a correlation function over multiple lag
-    periods and mainly focuses on linear dependency.  One can use the
-    cross-quantilogram to detect the presence of directional
-    predictability from one time series to another.  This package provides
-    a statistical inference method based on the stationary bootstrap.  See
-    Linton and Whang (2007) <doi:10.1016/j.jeconom.2007.01.004> for
-    univariate time series analysis and Han, Linton, Oka and Whang (2016)
-    <doi:10.1016/j.jeconom.2016.03.001> for multivariate time series
-    analysis.
+    functions.  It can be considered an extension of the correlogram,
+    which is a correlation function over multiple lag periods that mainly
+    focuses on linear dependency.  One can use the cross-quantilogram to
+    detect the presence of directional predictability from one time series
+    to another.  This package provides a statistical inference method
+    based on the stationary bootstrap.  For detailed theoretical and
+    empirical explanations, see Linton and Whang (2007) for univariate
+    time series analysis and Han, Linton, Oka and Whang (2016) for
+    multivariate time series analysis.  The full references for these key
+    publications are as follows: (1) Linton, O., and Whang, Y. J. (2007).
+    The quantilogram: with an application to evaluating directional
+    predictability.  Journal of Econometrics, 141(1), 250-282
+    <doi:10.1016/j.jeconom.2007.01.004>; (2) Han, H., Linton, O., Oka, T.,
+    and Whang, Y. J. (2016).  The cross-quantilogram: measuring quantile
+    dependence and testing directional predictability between time series.
+    Journal of Econometrics, 193(1), 251-270
+    <doi:10.1016/j.jeconom.2016.03.001>.
 License: GPL (>= 3)
+Depends: R (>= 3.5.0)
 Encoding: UTF-8
-RoxygenNote: 7.1.2
-Imports: np, quantreg, SparseM, stats
-Depends: R (>= 2.10)
+RoxygenNote: 7.3.2
+Imports: ggplot2, np, quantreg, rlang, scales, stats
+Suggests: knitr, rmarkdown, SparseM
 LazyData: true
 NeedsCompilation: no
-Packaged: 2022-03-01 12:55:44 UTC; student-t
+Packaged: 2024-08-27 12:16:43 UTC; student-t
 Author: Tatsushi Oka [aut, cre],
   Heejon Han [ctb],
   Oliver Linton [ctb],
   Yoon-Jae Whang [ctb]
 Repository: CRAN
-Date/Publication: 2022-03-05 15:20:02 UTC
+Date/Publication: 2024-08-27 12:40:02 UTC

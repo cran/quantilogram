@@ -4,10 +4,12 @@
 \alias{crossq.sb.opt}
 \title{Stationary Bootstrap for the Cross-Quantilogram with the choice of the stationary-bootstrap parameter}
 \usage{
-crossq.sb.opt(DATA, vecA, k, Bsize, sigLev)
+crossq.sb.opt(DATA, vecA, k, Bsize, sigLev = 0.05)
 }
 \arguments{
-\item{DATA}{The original data matrix}
+\item{DATA}{An input matrix of dimensions T x 2, where T is the number of observations.
+Column 1 contains the first variable and Column 2 contains the second variable.
+This function will apply a k-period lag to the second variable during computation.}
 
 \item{vecA}{A pair of two probability values at which sample quantiles are estimated}
 
@@ -15,7 +17,7 @@ crossq.sb.opt(DATA, vecA, k, Bsize, sigLev)
 
 \item{Bsize}{The number of repetition of bootstrap}
 
-\item{sigLev}{The statistical significance level}
+\item{sigLev}{The statistical significance level. Default is 0.05 (5\% significance level).}
 }
 \value{
 The boostrap critical values

@@ -7,7 +7,9 @@
 crossq.sb(DATA, vecA, k, gamma, Bsize, sigLev)
 }
 \arguments{
-\item{DATA}{The original data matrix}
+\item{DATA}{An input matrix of dimensions T x 2, where T is the number of observations.
+Column 1 contains the first variable and Column 2 contains the second variable.
+This function will apply a k-period lag to the second variable during computation.}
 
 \item{vecA}{A pair of two probability values at which sample quantiles are estimated}
 

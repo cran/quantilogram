@@ -12,8 +12,8 @@ q.hit(DATA, vecA)
 \item{vecA}{A vector of probabilty values at which sample quantiles are estimated}
 }
 \value{
-\preformatted{ A matrix of quantile-hits
-}
+\if{html}{\out{<div class="sourceCode">}}\preformatted{ A matrix of quantile-hits
+}\if{html}{\out{</div>}}
 }
 \description{
 Returns the matrix of quantil-hits
