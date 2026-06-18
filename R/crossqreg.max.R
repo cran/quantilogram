@@ -1,4 +1,4 @@
-##' The cross-quantilograms from 0 to a given lag order.
+##' The cross-quantilograms from 1 to a given lag order.
 ##'
 ##' This function calculates the partial cross-quantilograms up to the lag order
 ##' users specify.
@@ -23,14 +23,14 @@ crossqreg.max = function(DATA1, DATA2, vecA, Kmax)
     matQhit = qreg.hit(DATA1, DATA2, vecA)
   
     ## for each lag
-    vecCRQ = matrix(0, (Kmax+1), 1)  ## K+1 x 1
-    
-    for (k in 1:(Kmax+1)){
+    vecCRQ = matrix(0, Kmax, 1)  ## K x 1
+
+    for (k in 1:Kmax){
         ## cross-quantilogram of lag order k
         vecCRQ[k] =  corr.lag(matQhit, k)
     }
 
     ## vector of cross-quantilograms
-    return(vecCRQ)  ## K+1 x 1
+    return(vecCRQ)  ## K x 1
 
 }  ## EoF

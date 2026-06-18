@@ -29,15 +29,15 @@ Stationary Bootstrap procedure to generate critical values for both Box-Pierece 
 This function returns critical values for for both Box-Pierece and Ljung-Box type Q-statistics through the statioanry bootstrap proposed by Politis and Romano (1994).
 }
 \examples{
-data("sys.risk") ## data source 
-D = sys.risk[,c("Market", "JPM")] ## data: 2 variables 
+data("sys.risk") ## data source
+D = sys.risk[,c("Market", "JPM")] ## data: 2 variables
 
-# probability levels for the 2 variables 
+# probability levels for the 2 variables
 vecA = c(0.1, 0.5)
 
 ## setup for stationary bootstrap
 gamma  = 1/10 ## bootstrap parameter depending on data
-Bsize  = 5    ## small size, 5, for test 
+Bsize  = 5    ## small size, 5, for test
 sigLev = 0.05 ## significance level
 
 ## Q statistics with lags from 1 to5

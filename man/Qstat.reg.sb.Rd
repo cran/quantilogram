@@ -31,14 +31,14 @@ Stationary Bootstrap procedure to generate critical values for both Box-Pierece 
 This function returns critical values for for both Box-Pierece and Ljung-Box type Q-statistics through the statioanry bootstrap proposed by Politis and Romano (1994).
 }
 \examples{
-data(sys.risk) 
+data(sys.risk)
 
 ## sample size
 T = nrow(sys.risk)
 
 ## matrix for quantile regressions
 ## - 1st column: dependent variables
-## - the rest:   regressors or predictors 
+## - the rest:   regressors or predictors
 D1 = cbind(sys.risk[2:T,"Market"], sys.risk[1:(T-1),"Market"])
 D2 = cbind(sys.risk[2:T,"JPM"], sys.risk[1:(T-1),"JPM"])
 
@@ -47,10 +47,10 @@ vecA = c(0.1, 0.2)
 
 ## setup for stationary bootstrap
 gamma  = 1/10 ## bootstrap parameter depending on data
-Bsize  = 5    ## small size, 5, for test 
+Bsize  = 5    ## small size, 5, for test
 sigLev = 0.05 ## significance level
 
-## Q statistics with lags from 1 to 5, after quantile regression 
+## Q statistics with lags from 1 to 5, after quantile regression
 Qstat.reg.sb(D1, D2, vecA, 5, gamma, Bsize, sigLev)
 
 }

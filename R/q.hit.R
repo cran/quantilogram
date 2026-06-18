@@ -15,7 +15,12 @@ q.hit = function(DATA, vecA)
   ## size
   Tsize  = nrow(DATA)    ## =: T
   Nvar   = ncol(DATA)    ## =: #var
-  
+
+  ## input check
+  if (length(vecA) != Nvar) {
+    stop("length(vecA) must equal ncol(DATA)")
+  }
+
   ## (1) sample quantile for each column
   vecQ = matrix(0,Nvar,1)           ## 2 x 1
   for (j in 1:Nvar){

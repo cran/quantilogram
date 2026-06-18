@@ -44,6 +44,11 @@ time series. Journal of Econometrics, 193(1), 251-270.
 \author{
 \strong{Maintainer}: Tatsushi Oka \email{oka.econ@gmail.com}
 
+Authors:
+\itemize{
+  \item Tatsushi Oka \email{oka.econ@gmail.com}
+}
+
 Other contributors:
 \itemize{
   \item Heejon Han [contributor]

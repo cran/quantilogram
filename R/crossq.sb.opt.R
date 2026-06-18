@@ -7,7 +7,7 @@
 ##' result provided by Politis and White (2004) and Patton, Politis and White (2004)
 ##' (The R-package, "np", written by  Hayfield and Racine is used).
 ##' Next, the average of the obtained values is used as the parameter value.
-##' 
+##'
 ##' @title Stationary Bootstrap for the Cross-Quantilogram with the choice of the stationary-bootstrap parameter
 ##' @param DATA An input matrix of dimensions T x 2, where T is the number of observations.
 ##'             Column 1 contains the first variable and Column 2 contains the second variable.
@@ -15,7 +15,7 @@
 ##' @param vecA A pair of two probability values at which sample quantiles are estimated
 ##' @param k A lag order
 ##' @param Bsize The number of repetition of bootstrap
-##' @param sigLev The statistical significance level. Default is 0.05 (5% significance level). 
+##' @param sigLev The statistical significance level. Default is 0.05 (5% significance level).
 ##' @return The boostrap critical values
 ##' @references
 ##' Han, H., Linton, O., Oka, T., and Whang, Y. J. (2016).
@@ -56,61 +56,8 @@
 
 crossq.sb.opt = function(DATA, vecA, k, Bsize, sigLev=0.05)
 {
-    ## size
-    Tsize  = nrow(DATA)    ## =: T
-    Nsize  = Tsize - k     ## =: N
-
-    ## =============================
-    ## a pair of data points
-    ## =============================
-    ## original data, to draw {x_1t, x_2t-k}
-    matD     = matrix(0, Nsize, 2)              ## N x 2
-    matD[,1] = as.matrix(DATA[(k+1):Tsize ,1, drop=FALSE]) ## N x 1
-    matD[,2] = as.matrix(DATA[    1:Nsize ,2, drop=FALSE]) ## N x 1
-
-    ##======================o
-    ## optimal block size
-    ##======================
-    matB  = b.star(matD)                  ## use the sample being resampled
-    gamma = mean( (1/matB[,1, drop=FALSE]) )  ## 1st colum = stationary boostrap
-
-    ##=========================================================================
-    ## stationary bootstrap for cross-quantilogram
-    ##=========================================================================
-    ## container
-    vecCRQ.B = matrix(0,Bsize,1) ## B x 1
-
-    for (b in 1:Bsize){
-
-        ## container
-        vecI = sb.index(Nsize, gamma)
-
-        ## stationary resample
-        matD.SB = matD[vecI,]       ## N x 2
-
-        ## quantile hit
-        matQhit.SB = q.hit(matD.SB, vecA)
-
-        ## corss-quantilogram: not yet centered
-        matHH.SB    = t(matQhit.SB) %*% matQhit.SB
-        vecCRQ.B[b] = matHH.SB[1,2] / sqrt( matHH.SB[1,1] * matHH.SB[2,2] ) ## 1 x 1
-    }
-
-    ##=========================================================================
-    ## cross-quantilogram based on the original data
-    ##=========================================================================
-    ## corss-quantilogram
-    vCRQ = crossq(DATA, vecA, k)
-
-    ## centering
-    vecCRQ.cent = vecCRQ.B - vCRQ
-
-    ## critical values
-    vecCV    = matrix(0, 2, 1)
-    vecCV[1] = quantile(vecCRQ.cent, (    sigLev / 2))
-    vecCV[2] = quantile(vecCRQ.cent, (1 - sigLev / 2))
-
-    ## results
-    list(vecCV = vecCV, vCRQ = vCRQ)
+    ## optimal block length on the two series (Politis-White), then delegate
+    gamma = mean( 1/b.star(as.matrix(DATA[,1:2]))[,1] )
+    crossq.sb(DATA, vecA, k, gamma, Bsize, sigLev)
 
 }  ## EoF

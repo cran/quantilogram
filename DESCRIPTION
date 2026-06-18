@@ -1,6 +1,6 @@
 Package: quantilogram
 Title: Cross-Quantilogram
-Version: 3.1.1
+Version: 3.2.1
 Authors@R: c(
     person("Tatsushi", "Oka", , "oka.econ@gmail.com", role = c("aut", "cre")),
     person("Heejon", "Han", role = "ctb"),
@@ -29,17 +29,17 @@ Description: Estimation and inference methods for the cross-quantilogram.
     Journal of Econometrics, 193(1), 251-270
     <doi:10.1016/j.jeconom.2016.03.001>.
 License: GPL (>= 3)
-Depends: R (>= 3.5.0)
+Depends: R (>= 4.1.0)
 Encoding: UTF-8
-RoxygenNote: 7.3.2
+RoxygenNote: 8.0.0
 Imports: ggplot2, np, quantreg, rlang, scales, stats
 Suggests: knitr, rmarkdown, SparseM
 LazyData: true
 NeedsCompilation: no
-Packaged: 2024-08-27 12:16:43 UTC; student-t
+Packaged: 2026-06-15 23:28:04 UTC; timst
 Author: Tatsushi Oka [aut, cre],
   Heejon Han [ctb],
   Oliver Linton [ctb],
   Yoon-Jae Whang [ctb]
 Repository: CRAN
-Date/Publication: 2024-08-27 12:40:02 UTC
+Date/Publication: 2026-06-18 23:00:02 UTC

@@ -10,9 +10,6 @@ crossq.plot(
   Kmax,
   Bsize,
   sigLev = 0.05,
-  vec.lag,
-  vec.CQ,
-  mat.CI,
   y.min = -1,
   y.max = 1,
   ribbon_color = "gray",
@@ -20,7 +17,8 @@ crossq.plot(
   bar_color = "black",
   bar_width = 0.2,
   title = "",
-  subtitle = NULL
+  subtitle = NULL,
+  gamma = NULL
 )
 }
 \arguments{
@@ -34,12 +32,6 @@ Column 1 contains the first variable and Column 2 contains the second variable.}
 \item{Bsize}{Bootstrap sample size for stationary bootstrap.}
 
 \item{sigLev}{Significance level for confidence intervals. Default is 0.05 (95\% confidence level).}
-
-\item{vec.lag}{A vector of lag values (integer values). Not used in computation, only for plotting.}
-
-\item{vec.CQ}{A numeric vector of cross-quantilogram values. Not used in computation, only for plotting.}
-
-\item{mat.CI}{A matrix with two columns representing the lower and upper bounds of the confidence interval. Not used in computation, only for plotting.}
 
 \item{y.min}{The minimum y-axis value. Default is -1.}
 
@@ -56,6 +48,10 @@ Column 1 contains the first variable and Column 2 contains the second variable.}
 \item{title}{Plot title. Default is an empty string.}
 
 \item{subtitle}{Plot subtitle. Default is NULL (no subtitle).}
+
+\item{gamma}{Stationary-bootstrap parameter (the mean block length is 1/gamma). If NULL (default),
+it is chosen once by the Politis-White rule via \code{np::b.star} on the two series.
+Supplying a value avoids the dependency on the \code{np} package.}
 }
 \value{
 A list containing two elements:
@@ -68,10 +64,6 @@ A list containing two elements:
 \item CI_upper: The upper critical values for the confidence interval.
 }
 }
-
-A list containing two elements:
-\item{plot}{A ggplot object representing the cross-quantilogram plot.}
-\item{df.res}{A data frame containing lag values, cross-quantilogram values, and confidence intervals.}
 }
 \description{
 This function creates a plot of the cross-quantilogram with confidence intervals.

@@ -10,7 +10,7 @@ This package allows users to detect the presence of directional predictability f
 
 You can install the released version of quantilogram from [CRAN](https://CRAN.R-project.org) with:
   
-  ```R
+```R
 install.packages("quantilogram")
 ```
 

@@ -33,10 +33,10 @@ result provided by Politis and White (2004) and Patton, Politis and White (2004)
 Next, the average of the obtained values is used as the parameter value.
 }
 \examples{
-data("sys.risk") ## data source 
-D = sys.risk[,c("Market", "JPM")] ## data: 2 variables 
+data("sys.risk") ## data source
+D = sys.risk[,c("Market", "JPM")] ## data: 2 variables
 
-# probability levels for the 2 variables 
+# probability levels for the 2 variables
 vecA = c(0.1, 0.5)
 
 ## setup for stationary bootstrap

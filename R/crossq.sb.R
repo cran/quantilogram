@@ -39,58 +39,22 @@
 ##' @export
 crossq.sb = function(DATA, vecA, k, gamma, Bsize, sigLev)
 {
-    ## size
-    Tsize  = nrow(DATA)    ## =: T
-    Nsize  = Tsize - k     ## =: N
+    ## size and the aligned pair {x_1t, x_2,t-k}
+    Tsize = nrow(DATA)
+    Nsize = Tsize - k
+    matD  = cbind(DATA[(k+1):Tsize, 1], DATA[1:Nsize, 2])   ## N x 2
 
-    ## =============================
-    ## a pair of data points
-    ## =============================
-    ## original data, to draw {x_1t, x_2t-k}
-    matD     = matrix(0, Nsize, 2)              ## N x 2
-    matD[,1] = as.matrix(DATA[(k+1):Tsize, 1, drop=FALSE]) ## N x 1
-    matD[,2] = as.matrix(DATA[    1:Nsize, 2, drop=FALSE]) ## N x 1
-
-    ##=========================================================================
-    ## stationary bootstrap for cross-quantilogram
-    ##=========================================================================
-    ## container
-    vecCRQ.B = matrix(0,Bsize,1) ## B x 1
-
-    for (b in 1:Bsize){
-
-        ##=============================
-        ## Stationary Resampling
-        ##=============================
-        ## container
-        vecI = sb.index(Nsize, gamma)
-
-        ## stationary resample
-        matD.SB = matD[vecI,]       ## N x 2
-
-        ## quantile hit
-        matQhit.SB = q.hit(matD.SB, vecA)
-
-        ## corss-quantilogram: not yet centered
-        matHH.SB    = t(matQhit.SB) %*% matQhit.SB
-        vecCRQ.B[b] = matHH.SB[1,2] / sqrt( matHH.SB[1,1] * matHH.SB[2,2] ) ## 1 x 1
+    ## one bootstrap cross-quantilogram (lag-0 cross-moment of the resampled hits)
+    boot1 = function(b) {
+        matHH = crossprod(q.hit(matD[sb.index(Nsize, gamma), ], vecA))
+        matHH[1,2] / sqrt(matHH[1,1] * matHH[2,2])
     }
+    vecCRQ.B = vapply(1:Bsize, boot1, numeric(1))   ## B bootstrap values
 
-    ##=========================================================================
-    ## cross-quantilogram based on the original data
-    ##=========================================================================
-    ## corss-quantilogram
-    vCRQ = crossq(DATA, vecA, k)
+    ## cross-quantilogram on the original data, then centered critical values
+    vCRQ  = crossq(DATA, vecA, k)
+    vecCV = matrix(quantile(vecCRQ.B - vCRQ, c(sigLev/2, 1 - sigLev/2)), 2, 1)
 
-    ## centering
-    vecCRQ.cent = vecCRQ.B - vCRQ
-
-    ## critical values
-    vecCV    = matrix(0, 2, 1)
-    vecCV[1] = quantile(vecCRQ.cent, (    sigLev / 2))
-    vecCV[2] = quantile(vecCRQ.cent, (1 - sigLev / 2))
-
-    ## results
     list(vecCV = vecCV, vCRQ = vCRQ)
 
 }  ## EoF

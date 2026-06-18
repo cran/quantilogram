@@ -21,7 +21,9 @@ crossq.heatmap(
   x_angle = 90,
   x_lab = NULL,
   y_lab = NULL,
-  legend_title = "Cross-Q"
+  legend_title = "Cross-Q",
+  gamma = NULL,
+  text_size = 3
 )
 }
 \arguments{
@@ -60,6 +62,12 @@ This function will apply a k-period lag to the second variable during computatio
 \item{y_lab}{Y-axis label. If NULL (default), it's automatically generated.}
 
 \item{legend_title}{Title for the legend. Default is "Cross-Q".}
+
+\item{gamma}{Stationary-bootstrap parameter (the mean block length is 1/gamma). If NULL (default),
+it is chosen once by the Politis-White rule via \code{np::b.star} on the two series.
+Supplying a value avoids the dependency on the \code{np} package.}
+
+\item{text_size}{Font size of the per-cell cross-quantilogram value. Default is 3.}
 }
 \value{
 A list containing two elements:
@@ -78,25 +86,25 @@ A list containing two elements:
 \description{
 This function creates a customizable heatmap visualization of the cross-quantilogram matrix
 and returns a list containing the plot and a data frame of cross-quantilogram values with critical values.
-The heatmap uses 0 values if the test of no correlation
-cannot be rejected, and it uses cross-quantilogram values otherwise.
+Each cell is colored and labelled by the cross-quantilogram value. Cells that
+are significant at the given level (stationary bootstrap) are labelled in bold.
 The critical values are obtained by stationary bootstrap.
 }
 \examples{
 \dontrun{
-## data source 
-data("sys.risk") 
+## data source
+data("sys.risk")
 
-## two variables data: T x 2 
+## two variables data: T x 2
 DATA = sys.risk[,c("JPM", "Market")]
 
-## setup and estimation 
-k = 1                             ## lag order 
-vec.q  = seq(0.05, 0.95, 0.05)    ## a list of quantiles 
-B.size = 200                      ## Repetition of bootstrap  
-res = crossq.heatmap(DATA, k, vec.q, B.size) 
+## setup and estimation
+k = 1                             ## lag order
+vec.q  = seq(0.05, 0.95, 0.05)    ## a list of quantiles
+B.size = 200                      ## Repetition of bootstrap
+res = crossq.heatmap(DATA, k, vec.q, B.size)
 
-## result 
+## result
 print(res$plot)
 }
 

@@ -25,7 +25,7 @@
 ##' vecA = c(0.1, 0.5)
 ##'
 ##' ## cross-quantilogram with the lag of 5
-##' crossq.max(D, vecA, 5)
+##' crossq(D, vecA, 5)
 ##'
 ##' @author Heejoon Han, Oliver Linton, Tatsushi Oka and Yoon-Jae Whang
 ##' @export

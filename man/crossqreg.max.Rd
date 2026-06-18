@@ -19,7 +19,7 @@ crossqreg.max(DATA1, DATA2, vecA, Kmax)
 A vector of cross-quantilogram
 }
 \description{
-The cross-quantilograms from 0 to a given lag order.
+The cross-quantilograms from 1 to a given lag order.
 }
 \details{
 This function calculates the partial cross-quantilograms up to the lag order

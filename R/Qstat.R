@@ -1,4 +1,4 @@
-##' Te Box-Pierece and Ljung-Box type Q-statistics 
+##' The Box-Pierce and Ljung-Box type Q-statistics
 ##'
 ##' This function returns Box-Pierece and Ljung-Box type Q-statistics 
 ##' @title Q-statistics 

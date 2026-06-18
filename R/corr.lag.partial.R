@@ -28,8 +28,8 @@ corr.lag.partial = function(matH, k)
     ## cross-quantilogram of lag order k
     CRQ =  matDD[1,2] / sqrt( matDD[1,1] * matDD[2,2] ) ## 1 x 1
 
-    ## partial quantilogram
-    invDD  = solve(matDD)
+    ## partial quantilogram (NA if the hit moment matrix is singular)
+    invDD  = tryCatch(solve(matDD), error = function(e) matrix(NA_real_, Nvar, Nvar))
     ParCRQ = - invDD[1,2] / sqrt( invDD[1,1] * invDD[2,2] )
 
     ## list
